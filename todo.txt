@@ -1,0 +1,6 @@
+- install navigation
+- link nav to a screen with default stuff
+- install redux form
+- link simple login for to simple reducer
+- propose module / app structure
+- reselect?
