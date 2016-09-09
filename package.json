@@ -50,6 +50,7 @@
         2,
         "never"
       ],
+      "comma-dangle": ["always"],
       "no-trailing-spaces": [
         "error",
         {
@@ -77,10 +78,12 @@
   },
   "dependencies": {
     "lodash": "^4.13.1",
-    "react": "^15.1.0",
-    "react-native": "^0.27.2",
+    "react": "^15.2.1",
+    "react-native": "^0.31.0",
+    "react-native-navigation": "^2.0.0-experimental.105",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
+    "redux-form": "^6.0.2",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
     "remote-redux-devtools": "^0.3.3",
