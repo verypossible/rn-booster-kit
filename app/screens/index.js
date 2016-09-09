@@ -1,9 +1,9 @@
 import { Navigation } from 'react-native-navigation'
 
-import Home from '../components/Home'
+import Home from './Home'
+import Login from './Login'
 
 export const registerScreens = () => {
-  Navigation.registerComponent('example.FirstTabScreen', () => Home)
-  Navigation.registerComponent('example.SecondTabScreen', () => Home)
-  Navigation.registerComponent('example.PushedScreen', () => Home)
+  Navigation.registerComponent('Login', () => Login)
+  Navigation.registerComponent('Home', () => Home)
 }

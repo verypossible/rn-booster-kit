@@ -13,14 +13,14 @@ export default class App {
     Navigation.startTabBasedApp({
       tabs: [
         {
-          label: 'One',
-          screen: 'example.FirstTabScreen',
-          title: 'Screen One'
+          label: 'Login',
+          screen: 'Login',
+          title: 'Login'
         },
         {
-          label: 'Two',
-          screen: 'example.SecondTabScreen',
-          title: 'Screen Two'
+          label: 'Home',
+          screen: 'Home',
+          title: 'Home'
         }
       ]
     })
