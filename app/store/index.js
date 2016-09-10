@@ -1,19 +1,12 @@
 import { createStore, applyMiddleware } from 'redux'
-import { combineReducers } from 'redux'
-import { reducer as formReducer } from 'redux-form'
 
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 
+import rootReducer from './reducer'
+
 // TODO: get env to match reality
 const ENV = 'DEBUG'
-
-import * as session from '../modules/session'
-
-const rootReducer = combineReducers({
-  [session.NAME]: session.reducer,
-  form: formReducer,
-})
 
 const configMiddleware = () => {
   if (ENV === 'RELEASE') {

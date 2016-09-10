@@ -25,6 +25,7 @@ class TextField extends Component {
         onChangeText={(value) => onChange(value)}
         underlineColorAndroid="transparent"
         selectTextOnFocus={true}
+        placeholder={this.props.name}
         {...this.props}
       />
     );
@@ -77,6 +78,7 @@ const styles = StyleSheet.create({
     marginBottom: 5
   }
 })
+
 const formName = 'login'
 const form = reduxForm({ form: formName })(Login)
 const selector = formValueSelector(formName)
