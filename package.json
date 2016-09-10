@@ -46,29 +46,13 @@
       }
     },
     "rules": {
-      "semi": [
-        2,
-        "never"
-      ],
+      "semi": [ 2, "never" ],
       "comma-dangle": ["always"],
-      "no-trailing-spaces": [
-        "error",
-        {
-          "skipBlankLines": true
-        }
-      ],
-      "max-len": [
-        "error",
-        80,
-        2,
-        {
-          "ignoreUrls": true
-        }
-      ]
+      "no-trailing-spaces": [ "error", { "skipBlankLines": true } ],
+      "max-len": [ "error", 80, 2, { "ignoreUrls": true } ],
+      "react/jsx-uses-vars": [2]
     },
-    "plugins": [
-      "react"
-    ]
+    "plugins": [ "react" ]
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
