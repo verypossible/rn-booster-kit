@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { actions } from '../modules/session'
+
 import {
   formValueSelector,
   reduxForm,
@@ -10,39 +12,49 @@ import {
 import {
   StyleSheet,
   Text,
-  View,
   TextInput,
   ScrollView,
   TouchableOpacity,
 } from 'react-native'
 
-class TextField extends Component {
-  render(){
-    const { input: { value, onChange } } = this.props;
-    return (
-      <TextInput
-        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-        onChangeText={(value) => onChange(value)}
-        underlineColorAndroid="transparent"
-        selectTextOnFocus={true}
-        placeholder={this.props.name}
-        {...this.props}
-      />
-    );
-  }
+type TextFieldProps = {
+  input: Object,
+  name: String,
+}
+
+const TextField = (props: TextFieldProps) => {
+  const { input: { onChange } } = props
+
+  return (
+    <TextInput
+      style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+      onChangeText={(value) => onChange(value)}
+      underlineColorAndroid="transparent"
+      selectTextOnFocus={true}
+      placeholder={props.name}
+      {...props}
+    />
+  )
+}
+
+type LoginProps = {
+  rdxForm: Object,
+  dispatch: Function,
+  navigator: Object,
 }
 
 class Login extends Component {
-  constructor(props) {
+  constructor(props: LoginProps) {
     super(props)
 
     this.submit = this.submit.bind(this)
   }
 
   submit() {
-    const { rdxForm } = this.props
+    const { rdxForm, dispatch, navigator } = this.props
+    const redirectAction = () => navigator.push({ screen: 'Login' })
 
-    console.log(rdxForm)
+    dispatch(actions.loginUser(rdxForm, redirectAction))
   }
 
   render() {

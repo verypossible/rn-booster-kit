@@ -1,13 +1,13 @@
-import { Provider } from 'react-redux';
+import { Provider } from 'react-redux'
 import { Navigation } from 'react-native-navigation'
 
 import { registerScreens } from './screens'
 
-import configureStore from './store';
+import configureStore from './store'
 
-const store = configureStore();
+const store = configureStore()
 
-registerScreens(store, Provider);
+registerScreens(store, Provider)
 
 export default class App {
   constructor() {
