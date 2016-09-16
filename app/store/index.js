@@ -1,5 +1,7 @@
 import { createStore, applyMiddleware } from 'redux'
 
+import callAPIMiddleware from '../middlewares/callAPIMiddleware'
+
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 
@@ -10,9 +12,14 @@ const ENV = 'DEBUG'
 
 const configMiddleware = () => {
   if (ENV === 'RELEASE') {
-    return () => applyMiddleware(thunkMiddleware)
+    return () => applyMiddleware(thunkMiddleware, callAPIMiddleware)
   }
-  return () => applyMiddleware(thunkMiddleware, createLogger())
+
+  return () => applyMiddleware(
+    thunkMiddleware,
+    createLogger(),
+    callAPIMiddleware
+  )
 }
 
 const configureStore = (initialState) => {
