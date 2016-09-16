@@ -7,6 +7,8 @@ import {
   Field,
 } from 'redux-form'
 
+import { actions } from '../modules/session'
+
 import {
   StyleSheet,
   Text,
@@ -14,6 +16,7 @@ import {
   TextInput,
   ScrollView,
   TouchableOpacity,
+  Alert,
 } from 'react-native'
 
 class TextField extends Component {
@@ -40,9 +43,16 @@ class Login extends Component {
   }
 
   submit() {
-    const { rdxForm } = this.props
+    const { rdxForm, dispatch, navigator } = this.props
 
-    console.log(rdxForm)
+    dispatch(actions.loginUser(rdxForm.email))
+    .catch(() => {
+      Alert.alert('Invalid Email', 'The email you provided is bogus')
+      return false
+    })
+    .then((success) => {
+      if(success) navigator.push({ screen: 'LoginSuccess' })
+    })
   }
 
   render() {
